@@ -1,59 +1,74 @@
 # Compiler Design Programs
 
-This folder contains a set of Flex (Lex) and Bison (Yacc) programs used for compiler design practice. The actual source code is kept in the program folders; this README only explains what each program does and how to compile and run it.
+Compact index for the Flex/Yacc exercises in this folder. The source code lives in the program directories; this file only explains what each one does and how to run it.
 
 ---
 
-## Program 1 - String Parser for a^n b^(n+m) c^m
+## Program 1
 
-Files:
-- [Prog1/Lex/lex.l](Prog1/Lex/lex.l)
-- [Prog1/Yacc/yacc.y](Prog1/Yacc/yacc.y)
+### 1a - Text Counter
+Files: [Prog1/Lex/lex.l](Prog1/Lex/lex.l)
 
-Description:
-- Checks whether the input string belongs to the language a^n b^(n+m) c^m with n > 0 and m > 0.
+Counts lines, words, characters, and spaces until `#` is entered.
 
-Compile and run:
 ```bash
-cd '/Users/gurudev/Desktop/College/CD LAB /Compiler-Design/Prog1'
-yacc -d Yacc/yacc.y
-flex Lex/lex.l
-cc lex.yy.c y.tab.c -o prog1 -ll
-./prog1
+cd '/Users/gurudev/Desktop/College/CD LAB /Compiler-Design/Prog1/Lex'
+flex lex.l
+cc lex.yy.c -o prog1a -ll
+./prog1a
+```
+
+### 1b - String Parser for a^n b^(n+m) c^m
+Files: [Prog1/Yacc/lex.l](Prog1/Yacc/lex.l), [Prog1/Yacc/yacc.y](Prog1/Yacc/yacc.y)
+
+Checks whether the input string belongs to the language a^n b^(n+m) c^m with n > 0 and m > 0.
+
+```bash
+cd '/Users/gurudev/Desktop/College/CD LAB /Compiler-Design/Prog1/Yacc'
+yacc -d yacc.y
+flex lex.l
+cc lex.yy.c y.tab.c -o prog1b -ll
+./prog1b
 ```
 
 ---
 
-## Program 2 - Text Counter
+## Program 2
 
-Files:
-- [Prog2/Lex/lex.l](Prog2/Lex/lex.l)
+### 2a - Fraction & Integer Counter
+Files: [Prog2/Lex/lex.l](Prog2/Lex/lex.l)
 
-Description:
-- Counts lines, words, characters, and spaces until `#` is entered.
+Counts positive integers, negative integers, positive fractions, and negative fractions.
 
-Compile and run:
 ```bash
-cd '/Users/gurudev/Desktop/College/CD LAB /Compiler-Design/Prog2'
-flex Lex/lex.l
-cc lex.yy.c -o prog2 -ll
-./prog2
+cd '/Users/gurudev/Desktop/College/CD LAB /Compiler-Design/Prog2/Lex'
+flex lex.l
+cc lex.yy.c -o prog2a -ll
+./prog2a
+```
+
+### 2b - Arithmetic Calculator
+Files: [Prog2/Yacc/lex.l](Prog2/Yacc/lex.l), [Prog2/Yacc/yacc.y](Prog2/Yacc/yacc.y)
+
+Parses arithmetic expressions with `+`, `-`, `*`, `/`, parentheses, and negative numbers, then prints the integer result.
+
+```bash
+cd '/Users/gurudev/Desktop/College/CD LAB /Compiler-Design/Prog2/Yacc'
+yacc -d yacc.y
+flex lex.l
+cc lex.yy.c y.tab.c -o prog2b -ll
+./prog2b
 ```
 
 ---
 
-## Program 3 - For-Loop Analysis and Function Syntax Checking
+## Program 3
 
-### Program 3a - For-Loop Depth Counter
+### 3a - For-Loop Depth Counter
+Files: [Prog3/a/lex.l](Prog3/a/lex.l), [Prog3/a/yacc.y](Prog3/a/yacc.y)
 
-Files:
-- [Prog3/a/lex.l](Prog3/a/lex.l)
-- [Prog3/a/yacc.y](Prog3/a/yacc.y)
+Parses simplified C-like code, counts total `for` loops, and computes the maximum nesting depth using mid-rule actions.
 
-Description:
-- Parses simplified C-like code, counts total `for` loops, and computes the maximum nesting depth using mid-rule actions.
-
-Compile and run:
 ```bash
 cd '/Users/gurudev/Desktop/College/CD LAB /Compiler-Design/Prog3/a'
 yacc -d yacc.y
@@ -62,16 +77,11 @@ cc lex.yy.c y.tab.c -o prog3a -ll
 ./prog3a
 ```
 
-### Program 3b - C Function Syntax Checker
+### 3b - C Function Syntax Checker
+Files: [Prog3/b/lex.l](Prog3/b/lex.l), [Prog3/b/yacc.y](Prog3/b/yacc.y)
 
-Files:
-- [Prog3/b/lex.l](Prog3/b/lex.l)
-- [Prog3/b/yacc.y](Prog3/b/yacc.y)
+Checks whether a C-like function declaration and body follow the supported syntax.
 
-Description:
-- Checks whether a C-like function declaration and body follow the supported syntax.
-
-Compile and run:
 ```bash
 cd '/Users/gurudev/Desktop/College/CD LAB /Compiler-Design/Prog3/b'
 yacc -d yacc.y
@@ -83,15 +93,10 @@ cc lex.yy.c y.tab.c -o prog3b -ll
 ---
 
 ## Program 4 - Three Address Code and Quadruples
+Files: [Prog4/lex.l](Prog4/lex.l), [Prog4/yacc.y](Prog4/yacc.y)
 
-Files:
-- [Prog4/lex.l](Prog4/lex.l)
-- [Prog4/yacc.y](Prog4/yacc.y)
+Parses arithmetic expressions and generates both three-address code and quadruples.
 
-Description:
-- Parses arithmetic expressions and generates both three-address code and quadruples.
-
-Compile and run:
 ```bash
 cd '/Users/gurudev/Desktop/College/CD LAB /Compiler-Design/Prog4'
 yacc -d yacc.y
@@ -103,15 +108,10 @@ cc lex.yy.c y.tab.c -o prog4 -ll
 ---
 
 ## Program 5 - Target Code Generation
+Files: [Prog5/lex.l](Prog5/lex.l), [Prog5/yacc.y](Prog5/yacc.y)
 
-Files:
-- [Prog5/lex.l](Prog5/lex.l)
-- [Prog5/yacc.y](Prog5/yacc.y)
+Parses arithmetic expressions and converts the intermediate form into simple target code instructions.
 
-Description:
-- Parses arithmetic expressions and converts the intermediate form into simple target code instructions.
-
-Compile and run:
 ```bash
 cd '/Users/gurudev/Desktop/College/CD LAB /Compiler-Design/Prog5'
 yacc -d yacc.y
@@ -124,7 +124,7 @@ cc lex.yy.c y.tab.c -o prog5 -ll
 
 ## Boilerplate Notes
 
-Use these commands as the standard pattern for this folder:
+Standard build pattern:
 
 ```bash
 yacc -d yacc.y
@@ -133,27 +133,25 @@ cc lex.yy.c y.tab.c -o program_name -ll
 ./program_name
 ```
 
-If your system uses Bison instead of Yacc, `bison -d -y yacc.y` is the equivalent parser-generation command.
+If you use Bison instead of Yacc, `bison -d -y yacc.y` is the equivalent parser command.
 
-General meanings of the tools:
-- `bison -d` generates the parser source and header files.
+Tool meanings:
+- `bison -d` or `yacc -d` generates parser source and header files.
 - `flex` generates the scanner source file.
 - `cc` compiles and links the generated C files into an executable.
 
-If a grammar uses only integer semantic values, `%union` and `%type` are not required. They are needed when semantic values have different types.
+If a grammar uses only integer semantic values, `%union` and `%type` are not required.
 
 ---
 
 ## Exam Cheat Sheet Skeletons
 
-Memorize these two skeletons to keep your exam answer structure clean and to quickly write a valid Lex/Yacc program format.
-
-### 1. The Lex Skeleton (`lex.l`)
+### Lex skeleton (`lex.l`)
 
 ```c
 %{
 #include <stdio.h>
-#include "y.tab.h"  /* Only include this if there is a Yacc file */
+#include "y.tab.h"
 %}
 
 %option noyywrap
@@ -163,7 +161,7 @@ Memorize these two skeletons to keep your exam answer structure clean and to qui
 %%
 ```
 
-### 2. The Yacc Skeleton (`yacc.y`)
+### Yacc skeleton (`yacc.y`)
 
 ```c
 %{
@@ -181,12 +179,12 @@ int yyerror();
 %%
 
 int main() {
-	yyparse();
-	return 0;
+    yyparse();
+    return 0;
 }
 
 int yyerror() {
-	printf("Error!\n");
-	exit(0);
+    printf("Error!\n");
+    exit(0);
 }
 ```
