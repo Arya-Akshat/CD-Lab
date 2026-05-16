@@ -6,7 +6,7 @@
 %option noyywrap
 
 %%
-/* --- 2. TRANSLATION RULES --- */
+    /* --- 2. TRANSLATION RULES --- */
 
 "for"                       { return FOR; }  /* Recognize the keyword 'for' */
 

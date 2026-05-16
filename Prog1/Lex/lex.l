@@ -8,7 +8,7 @@ int lines = 0, chars = 0, words = 0, spaces = 0;
 %option noyywrap 
 
 %%
-/* --- 2. TRANSLATION RULES --- */
+        /* --- 2. TRANSLATION RULES --- */
 
 \n              { lines++; }      /* Every Enter key is a new line */
 

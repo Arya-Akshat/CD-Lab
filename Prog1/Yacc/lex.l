@@ -5,7 +5,7 @@
 %}
 
 %%
-/* --- 2. TRANSLATION RULES SECTION --- */
+    /* --- 2. TRANSLATION RULES SECTION --- */
 
 \n    { return 0; }         /* When the user hits Enter (\n), return 0. 
                                Yacc interprets 0 as "End of Input". */

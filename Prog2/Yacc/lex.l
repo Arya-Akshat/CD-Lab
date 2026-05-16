@@ -5,7 +5,7 @@
 %}
 
 %%
-/* --- 2. TRANSLATION RULES --- */
+    /* --- 2. TRANSLATION RULES --- */
 
 [0-9]+  { 
             // yytext is the string Lex found (e.g., "42")

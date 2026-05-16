@@ -26,7 +26,7 @@ posnum  \+?{num}\/\+?{num}|-{num}\/-{num}
 negnum  -{num}\/\+?{num}|\+?{num}\/-{num}
 
 %%
-/* --- 2. TRANSLATION RULES --- */
+    /* --- 2. TRANSLATION RULES --- */
 
 {posint}    { posint++; }
 {negint}    { negint++; }

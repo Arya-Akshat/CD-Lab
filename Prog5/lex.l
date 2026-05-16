@@ -7,7 +7,7 @@
 %option noyywrap
 
 %%
-/* --- 2. TRANSLATION RULES --- */
+    /* --- 2. TRANSLATION RULES --- */
 
 [a-zA-Z_][a-zA-Z_0-9]* { yylval.exp = strdup(yytext); return IDEN; }
 

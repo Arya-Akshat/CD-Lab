@@ -81,26 +81,27 @@ int yyerror() {
 
 // The engine that builds the table
 string addToTable(string op1, string op2, char op) {
-    // Special case: If it's an assignment (X = t2), we don't need a new temp variable
-    if(op == '=') {
-        code[idx].res = op1; // Override the result of the last row
-        return op1;
-    }
-
     idx++; // Move to the next row in the table
     
     // Create a new temporary variable name (e.g., "@A", "@B")
     string res = malloc(3);
     sprintf(res, "@%c", idx + 'A'); // 'A' + 0 = 'A', 'A' + 1 = 'B', etc.
 
-    // Fill the 4 columns
-    code[idx].op1 = op1;
-    code[idx].op2 = op2;
-    code[idx].op = op;
-    code[idx].res = res;
+    // If it's an assignment (X = t2), we set the result name to X
+    if(op == '=') {
+        code[idx].res = op1;
+        code[idx].op1 = op2;
+        code[idx].op2 = " "; // Empty string for assignments
+    } else {
+        code[idx].res = res;
+        code[idx].op1 = op1;
+        code[idx].op2 = op2;
+    }
     
-    // Return the temp variable (e.g., "@A") back to Yacc so it becomes $$
-    return res;
+    code[idx].op = op;
+    
+    // Return the result name back to Yacc
+    return code[idx].res;
 }
 
 void threeAddressCode() {

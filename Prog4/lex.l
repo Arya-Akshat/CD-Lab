@@ -7,7 +7,7 @@
 %option noyywrap
 
 %%
-/* --- 2. TRANSLATION RULES --- */
+    /* --- 2. TRANSLATION RULES --- */
 
 [a-zA-Z_][a-zA-Z_0-9]* {
     // strdup() copies the matched text (e.g., "x" or "count") into memory.
