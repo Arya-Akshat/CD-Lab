@@ -11,7 +11,7 @@
             // yytext is the string Lex found (e.g., "42")
             // atoi() converts the string "42" into the integer 42
             // yylval is the mailbox where we leave this integer for Yacc to pick up
-            yylval = atoi(yytext); 
+            yylval.num = atoi(yytext); 
             return NUM; // Tell Yacc: "I found a number!"
         }
 

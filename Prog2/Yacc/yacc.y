@@ -7,7 +7,11 @@ int yyerror(char *s); // Adding 'char *s' allows us to pass custom error message
 %}
 
 // --- 1.5 YACC DECLARATIONS ---
-%token NUM
+%union {
+    int num;
+}
+%token <num> NUM
+%type <num> E S
 
 /* Precedence Rules: 
    Things lower down in this list happen FIRST (like standard math).
