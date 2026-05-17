@@ -8,6 +8,7 @@
 
 %%
     /* --- 2. TRANSLATION RULES --- */
+quit    { return 0; }
 
 [a-zA-Z_][a-zA-Z_0-9]* {
     // strdup() copies the matched text (e.g., "x" or "count") into memory.
@@ -29,5 +30,7 @@
 [ \t]+    ;                     /* Ignore spaces */
 
 .         ;                     /* Ignore anything else */
+
+
 
 %%

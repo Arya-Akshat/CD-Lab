@@ -8,6 +8,7 @@
 
 %%
     /* --- 2. TRANSLATION RULES --- */
+quit    {return 0;}
 
 [a-zA-Z_][a-zA-Z_0-9]* { yylval.exp = strdup(yytext); return IDEN; }
 

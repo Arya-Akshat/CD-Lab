@@ -85,8 +85,8 @@ string addToTable(string op1, string op2, char op) {
     
     // Create a new temporary variable name (e.g., "@A", "@B")
     string res = malloc(3);
-    sprintf(res, "@%c", idx + 'A'); // 'A' + 0 = 'A', 'A' + 1 = 'B', etc.
-
+    sprintf(res, "@%c", idx + 'A'); // 'A' + 0 = 'A', 'A' + 1 = 'B', etc. 
+    // sprintf() formats data and stores it inside a string instead of printing it to the screen.
     // If it's an assignment (X = t2), we set the result name to X
     if(op == '=') {
         code[idx].res = op1;
@@ -106,7 +106,18 @@ string addToTable(string op1, string op2, char op) {
 
 void threeAddressCode() {
     for(int i = 0; i <= idx; i++) {
-        printf("%s = %s %c %s\n", code[i].res, code[i].op1, code[i].op, code[i].op2);
+
+        if(code[i].op == '=') {
+            printf("%s = %s\n", code[i].res, code[i].op1);
+        }
+        else {
+            printf("%s = %s %c %s\n",
+                   code[i].res,
+                   code[i].op1,
+                   code[i].op,
+                   code[i].op2);
+        }
+
     }
 }
 
